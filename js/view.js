@@ -54,11 +54,13 @@ var View = (function () {
             }, 500);
         },
         updateScore: function (score) {
-            scoreDom.innerHTML = data.score;
-            this.addScoreAnimation(score);
+            //scoreDom.innerHTML = data.score;
+			scoreDom.innerHTML = Sanscript.t(String(data.score), 'itrans','devanagari');
+            //this.addScoreAnimation(score);
         },
         updateBest: function () {
-            bestDom.innerHTML = data.best;
+            //bestDom.innerHTML = data.best;
+			bestDom.innerHTML = Sanscript.t(String(data.best), 'itrans','devanagari');
         },
         setInfo: function (elem, pos, index) {
             elem.style.left = pos.left + 'px';
@@ -82,7 +84,7 @@ var View = (function () {
         createTileHTML: function (obj) {
             var tile = document.createElement('div');
             tile.className = obj.classNames;
-            tile.innerHTML = obj.val;
+            tile.innerHTML = Sanscript.t(String(obj.val), 'itrans','devanagari');
             tile.setAttribute('data-index', obj.index);
             tile.setAttribute('data-val', obj.val);
             this.setPos(tile, obj.pos);
@@ -112,7 +114,8 @@ var View = (function () {
             var tile = this.getTile(index);
             var val = data.cell[index].val;
             tile.setAttribute('data-val', val);
-            tile.innerHTML = val;
+           // tile.innerHTML = val;
+		   tile.innerHTML = Sanscript.t(String(val), 'itrans','devanagari');
             tile.classList.add('addition');
             setTimeout(function () {
                 tile.classList.remove('addition');
